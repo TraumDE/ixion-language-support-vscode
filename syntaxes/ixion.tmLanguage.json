@@ -1,32 +1,50 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Ixion",
-	"patterns": [
-		{
-			"include": "#keywords"
-		},
-		{
-			"include": "#strings"
-		}
-	],
-	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.ixion",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.ixion",
-			"begin": "\"",
-			"end": "\"",
-			"patterns": [
-				{
-					"name": "constant.character.escape.ixion",
-					"match": "\\\\."
-				}
-			]
-		}
-	},
-	"scopeName": "source.ixion"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "scopeName": "source.ixion",
+  "name": "Ixion",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#strings" },
+    { "include": "#numbers" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.ixion",
+          "begin": "//",
+          "end": "$"
+        },
+        {
+          "name": "comment.block.ixion",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "keywords": {
+      "name": "keyword.control.ixion",
+      "match": "\\b(var|const|type|use|pub|def|struct|enum|for|case|if|else|while|return|true|false)\\b"
+    },
+    "types": {
+      "name": "support.type.ixion",
+      "match": "\\b(string|float|int|any|double)\\b"
+    },
+    "strings": {
+      "name": "string.quoted.double.ixion",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [{ "include": "#string_escapes" }]
+    },
+    "string_escapes": {
+      "name": "constant.character.escape.ixion",
+      "match": "\\\\."
+    },
+    "numbers": {
+      "name": "constant.numeric.ixion",
+      "match": "\\b(0x[0-9a-fA-F]+|\\d+(\\.\\d+)?([eE][+-]?\\d+)?)\\b"
+    }
+  }
 }
