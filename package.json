@@ -3,6 +3,7 @@
   "displayName": "Ixion language support",
   "description": "",
   "publisher": "TraumDE",
+  "icon": "icon.png",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.125.0"
