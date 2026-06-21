@@ -1,0 +1,25 @@
+{
+  "name": "ixion",
+  "displayName": "Ixion language support",
+  "description": "",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.125.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [{
+      "id": "ixion",
+      "aliases": ["Ixion", "ixion"],
+      "extensions": [".ix"],
+      "configuration": "./language-configuration.json"
+    }],
+    "grammars": [{
+      "language": "ixion",
+      "scopeName": "source.ixion",
+      "path": "./syntaxes/ixion.tmLanguage.json"
+    }]
+  }
+}
