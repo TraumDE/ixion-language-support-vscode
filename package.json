@@ -3,7 +3,7 @@
   "displayName": "Ixion language support",
   "description": "",
   "publisher": "TraumDE",
-  "icon": "icon.png",
+  "icon": "assets/icon.png",
   "version": "0.1.0",
   "repository": "https://github.com/TraumDE/ixion-language-support-vscode/tree/main",
   "engines": {
