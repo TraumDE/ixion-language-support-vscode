@@ -34,6 +34,9 @@
       }
     ]
   },
+  "scripts": {
+    "build": "vsce package"
+  },
   "devDependencies": {
     "@vscode/vsce": "^3.9.2"
   }
