@@ -4,7 +4,7 @@
   "description": "",
   "publisher": "TraumDE",
   "icon": "icon.png",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "repository": "https://github.com/TraumDE/ixion-language-support-vscode/tree/main",
   "engines": {
     "vscode": "^1.125.0"
