@@ -1,5 +1,4 @@
 {
-  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
   "scopeName": "source.ixion",
   "name": "Ixion",
   "patterns": [
@@ -7,7 +6,10 @@
     { "include": "#keywords" },
     { "include": "#types" },
     { "include": "#strings" },
-    { "include": "#numbers" }
+    { "include": "#numbers" },
+    { "include": "#operators" },
+    { "include": "#lambda" },
+    { "include": "#case" }
   ],
   "repository": {
     "comments": {
@@ -26,11 +28,11 @@
     },
     "keywords": {
       "name": "keyword.control.ixion",
-      "match": "\\b(var|const|type|use|pub|def|struct|enum|for|case|if|else|while|return|true|false)\\b"
+      "match": "\\b(pub|def|type|var|const|use|if|else|for|while|return|case|lambda|struct|enum|true|false)\\b"
     },
     "types": {
       "name": "support.type.ixion",
-      "match": "\\b(string|float|int|any|double)\\b"
+      "match": "\\b(int|float|double|string|bool|any|void)\\b"
     },
     "strings": {
       "name": "string.quoted.double.ixion",
@@ -44,7 +46,23 @@
     },
     "numbers": {
       "name": "constant.numeric.ixion",
-      "match": "\\b(0x[0-9a-fA-F]+|\\d+(\\.\\d+)?([eE][+-]?\\d+)?)\\b"
+      "match": "\\b(0x[0-9a-fA-F]+|\\d+(\\.\\d+)?([eE][+-]?\\d+)?[fF]?|\\d+)\\b"
+    },
+    "operators": {
+      "name": "keyword.operator.ixion",
+      "match": "(\\+\\+|--|=>|==|!=|>=|<=|&&|\\|\\||\\+|-|\\*|/|%|\\||&|=|->|::)"
+    },
+    "lambda": {
+      "name": "keyword.control.lambda.ixion",
+      "begin": "\\blambda\\b",
+      "end": "\\{",
+      "patterns": [{ "include": "#types" }]
+    },
+    "case": {
+      "begin": "\\bcase\\b",
+      "end": "\\{",
+      "name": "keyword.control.case.ixion",
+      "patterns": [{ "include": "#keywords" }, { "include": "#types" }]
     }
   }
 }
