@@ -4,6 +4,10 @@ All notable changes to the "ixion" extension will be documented in this file.
 
 ## [Unreleased](https://github.com/TraumDE/ixion-language-support-vscode/compare/v0.1.0...HEAD)
 
+## [0.1.1] - 2026-06-22
+
+- Add icon for .ix files in explorer
+
 ## [0.1.0] - 2026-06-21
 
 ### Added
