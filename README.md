@@ -6,7 +6,7 @@
 Visual Studio Code extension providing syntax highlighting for the [**Ixion**](https://github.com/ixionlang/ixion) programming language (`.ix` files).
 
 <div>
-    <img src="https://github.com/TraumDE/ixion-language-support-vscode/blob/main/assets/icon.png" width="100" />
+    <img src="https://raw.githubusercontent.com/TraumDE/ixion-language-support-vscode/main/assets/icon.png" width="100" />
 </div>
 
 ## Table of Contents
