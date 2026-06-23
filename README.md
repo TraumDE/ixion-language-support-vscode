@@ -31,7 +31,12 @@ Visual Studio Code extension providing syntax highlighting for the [**Ixion**](h
 
 ## Installation
 
-### From Releases (Recommended)
+### From VSCode Marketplace (Recommended)
+
+Now you can find extension in extensions menu
+https://marketplace.visualstudio.com/items?itemName=TraumDE.ixion
+
+### From Releases
 
 1. Go to the [Releases page](https://github.com/TraumDE/ixion-language-support-vscode/releases)
 2. Download the latest `ixion-*.vsix` file
@@ -63,7 +68,7 @@ pnpm install
 pnpm build
 
 # Install the extension
-code --install-extension ./ixion-0.1.0.vsix
+code --install-extension ./ixion-<version>.vsix
 ```
 
 ## Requirements
