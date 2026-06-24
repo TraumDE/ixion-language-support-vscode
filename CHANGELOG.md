@@ -4,6 +4,10 @@ All notable changes to the "ixion" extension will be documented in this file.
 
 ## [Unreleased](https://github.com/TraumDE/ixion-language-support-vscode/compare/v0.1.0...HEAD)
 
+## [0.1.3] - 2026-06-24
+
+- Added demo image to readme
+
 ## [0.1.2] - 2026-06-23
 
 - Published extension to VSCode marketplace
