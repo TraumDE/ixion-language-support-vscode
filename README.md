@@ -9,6 +9,12 @@ Visual Studio Code extension providing syntax highlighting for the [**Ixion**](h
     <img src="https://raw.githubusercontent.com/TraumDE/ixion-language-support-vscode/main/assets/icon.png" width="100" />
 </div>
 
+## Demo
+
+<div>
+    <img src="https://raw.githubusercontent.com/TraumDE/ixion-language-support-vscode/main/assets/demo.png"  />
+</div>
+
 ## Table of Contents
 
 - [Features](#features)
