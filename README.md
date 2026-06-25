@@ -27,6 +27,7 @@ Visual Studio Code extension providing syntax highlighting for the [**Ixion**](h
 ## Features
 
 - Support for line comments (`//`) and block comments (`/* */`)
+- Code autocompletion with all keywords and types
 - Highlighting of all core keywords (`pub`, `def`, `var`, `const`, `type`, `use`, `struct`, `enum`, `case`, `lambda`, etc.)
 - Built-in type highlighting (`int`, `float`, `double`, `string`, `bool`, `any`, `void`)
 - String literals with escape sequences
