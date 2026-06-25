@@ -3,6 +3,7 @@
   "displayName": "Ixion language support",
   "description": "",
   "publisher": "TraumDE",
+  "type": "module",
   "icon": "assets/icon.png",
   "license": "MIT",
   "version": "0.1.3",
