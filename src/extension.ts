@@ -23,7 +23,7 @@ export const activate = (context: vscode.ExtensionContext) => {
   const types = ["int", "float", "double", "string", "bool", "any", "void"];
 
   const completionProvider = vscode.languages.registerCompletionItemProvider(
-    "Ixion",
+    "ixion",
     {
       provideCompletionItems(
         document,
