@@ -2,33 +2,33 @@ import * as vscode from "vscode";
 
 export const activate = (context: vscode.ExtensionContext) => {
   const keywords: Record<string, string> = {
-    pub: "keyword.pub",
-    def: "keyword.def",
-    type: "keyword.type",
-    var: "keyword.var",
-    const: "keyword.const",
-    use: "keyword.use",
-    if: "keyword.if",
-    else: "keyword.else",
-    for: "keyword.for",
-    while: "keyword.while",
-    return: "keyword.return",
-    case: "keyword.case",
-    lambda: "keyword.lambda",
-    struct: "keyword.struct",
-    enum: "keyword.enum",
-    true: "keyword.true",
-    false: "keyword.false",
+    pub: "public visibility modifier",
+    def: "function definition",
+    type: "type declaration",
+    var: "mutable variable",
+    const: "constant variable",
+    use: "module import",
+    if: "if conditional statement",
+    else: "else conditional branch",
+    for: "for loop statement",
+    while: "while loop statement",
+    return: "return statement",
+    case: "switch/match case branch",
+    lambda: "anonymous function expression",
+    struct: "struct declaration",
+    enum: "enum declaration",
+    true: "boolean true literal",
+    false: "boolean false literal",
   };
 
   const types: Record<string, string> = {
-    int: "type.int",
-    float: "type.float",
-    double: "type.double",
-    string: "type.string",
-    bool: "type.bool",
-    any: "type.any",
-    void: "type.void",
+    int: "integer type",
+    float: "floating-point type",
+    double: "double-precision float type",
+    string: "string text type",
+    bool: "boolean type",
+    any: "dynamic any type",
+    void: "void / no return type",
   };
 
   const completionProvider = vscode.languages.registerCompletionItemProvider(
@@ -52,7 +52,7 @@ export const activate = (context: vscode.ExtensionContext) => {
         Object.entries(types).forEach(([type, detail]) => {
           const item = new vscode.CompletionItem(
             type,
-            vscode.CompletionItemKind.Keyword,
+            vscode.CompletionItemKind.TypeParameter,
           );
 
           item.detail = vscode.l10n.t(detail);
