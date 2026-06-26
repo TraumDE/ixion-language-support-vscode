@@ -14,10 +14,10 @@
   "scripts": {
     "compile": "tsc",
     "build": "vsce package",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
+    "lint": "oxlint ./src",
+    "lint:fix": "oxlint --fix ./src",
+    "fmt": "oxfmt ./src",
+    "fmt:check": "oxfmt --check ./src"
   },
   "devDependencies": {
     "@types/vscode": "^1.125.0",
