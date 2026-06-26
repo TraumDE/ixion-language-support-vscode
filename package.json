@@ -45,11 +45,14 @@
     "compile": "tsc",
     "build": "vsce package",
     "lint": "oxlint",
-    "lint:fix": "oxlint --fix"
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   },
   "devDependencies": {
     "@types/vscode": "^1.125.0",
     "@vscode/vsce": "^3.9.2",
+    "oxfmt": "^0.56.0",
     "oxlint": "^1.71.0",
     "typescript": "^6.0.3"
   },
