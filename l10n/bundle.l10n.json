@@ -1,0 +1,27 @@
+{
+  "keyword.pub": "public visibility modifier",
+  "keyword.def": "function definition",
+  "keyword.type": "type declaration",
+  "keyword.var": "mutable variable",
+  "keyword.const": "constant variable",
+  "keyword.use": "module import",
+  "keyword.if": "if conditional statement",
+  "keyword.else": "else conditional branch",
+  "keyword.for": "for loop statement",
+  "keyword.while": "while loop statement",
+  "keyword.return": "return statement",
+  "keyword.case": "switch/match case branch",
+  "keyword.lambda": "anonymous function expression",
+  "keyword.struct": "struct declaration",
+  "keyword.enum": "enum declaration",
+  "keyword.true": "boolean true literal",
+  "keyword.false": "boolean false literal",
+
+  "type.int": "integer type",
+  "type.float": "floating-point type",
+  "type.double": "double-precision float type",
+  "type.string": "string text type",
+  "type.bool": "boolean type",
+  "type.any": "dynamic any type",
+  "type.void": "void / no return type"
+}
