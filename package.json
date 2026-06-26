@@ -42,6 +42,7 @@
     ]
   },
   "scripts": {
+    "compile": "tsc",
     "build": "vsce package"
   },
   "devDependencies": {
