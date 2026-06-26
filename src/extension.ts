@@ -34,10 +34,7 @@ export const activate = (context: vscode.ExtensionContext) => {
   const completionProvider = vscode.languages.registerCompletionItemProvider(
     "ixion",
     {
-      provideCompletionItems(
-        document,
-        position,
-      ): vscode.ProviderResult<
+      provideCompletionItems(): vscode.ProviderResult<
         vscode.CompletionItem[] | vscode.CompletionList<vscode.CompletionItem>
       > {
         const completionItems: vscode.CompletionItem[] = [];
