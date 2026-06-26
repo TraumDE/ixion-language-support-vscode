@@ -1,6 +1,6 @@
 # Ixion language support
 
-[![Version](https://img.shields.io/badge/version-0.2.1-blue.svg)](https://github.com/TraumDE/ixion-language-support-vscode)
+[![Version](https://img.shields.io/badge/version-0.3.0-blue.svg)](https://github.com/TraumDE/ixion-language-support-vscode)
 ![Visual Studio Code](https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)
 
 Visual Studio Code extension providing language support for the [**Ixion**](https://github.com/ixionlang/ixion) programming language (`.ix` files).
