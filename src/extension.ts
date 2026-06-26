@@ -2,58 +2,67 @@ import * as vscode from "vscode";
 
 export const activate = (context: vscode.ExtensionContext) => {
   const keywords: Record<string, string> = {
-    pub: "public visibility modifier",
-    def: "function definition",
-    type: "type declaration",
-    var: "mutable variable",
-    const: "constant variable",
-    use: "module import",
-    if: "if conditional statement",
-    else: "else conditional branch",
-    for: "for loop statement",
-    while: "while loop statement",
-    return: "return statement",
-    case: "switch/match case branch",
-    lambda: "anonymous function expression",
-    struct: "struct declaration",
-    enum: "enum declaration",
-    true: "boolean true literal",
-    false: "boolean false literal",
+    pub: "keyword.pub",
+    def: "keyword.def",
+    type: "keyword.type",
+    var: "keyword.var",
+    const: "keyword.const",
+    use: "keyword.use",
+    if: "keyword.if",
+    else: "keyword.else",
+    for: "keyword.for",
+    while: "keyword.while",
+    return: "keyword.return",
+    case: "keyword.case",
+    lambda: "keyword.lambda",
+    struct: "keyword.struct",
+    enum: "keyword.enum",
+    true: "keyword.true",
+    false: "keyword.false",
   };
 
   const types: Record<string, string> = {
-    int: "integer type",
-    float: "floating-point type",
-    double: "double-precision float type",
-    string: "string text type",
-    bool: "boolean type",
-    any: "dynamic any type",
-    void: "void / no return type",
+    int: "type.int",
+    float: "type.float",
+    double: "type.double",
+    string: "type.string",
+    bool: "type.bool",
+    any: "type.any",
+    void: "type.void",
   };
 
-  const completionProvider = vscode.languages.registerCompletionItemProvider("ixion", {
-    provideCompletionItems(): vscode.ProviderResult<
-      vscode.CompletionItem[] | vscode.CompletionList<vscode.CompletionItem>
-    > {
-      const completionItems: vscode.CompletionItem[] = [];
+  const completionProvider = vscode.languages.registerCompletionItemProvider(
+    "ixion",
+    {
+      provideCompletionItems(): vscode.ProviderResult<
+        vscode.CompletionItem[] | vscode.CompletionList<vscode.CompletionItem>
+      > {
+        const completionItems: vscode.CompletionItem[] = [];
 
-      Object.entries(keywords).forEach(([keyword, detail]) => {
-        const item = new vscode.CompletionItem(keyword, vscode.CompletionItemKind.Keyword);
+        Object.entries(keywords).forEach(([keyword, detail]) => {
+          const item = new vscode.CompletionItem(
+            keyword,
+            vscode.CompletionItemKind.Keyword,
+          );
 
-        item.detail = detail;
-        completionItems.push(item);
-      });
+          item.detail = vscode.l10n.t(detail);
+          completionItems.push(item);
+        });
 
-      Object.entries(types).forEach(([type, detail]) => {
-        const item = new vscode.CompletionItem(type, vscode.CompletionItemKind.Keyword);
+        Object.entries(types).forEach(([type, detail]) => {
+          const item = new vscode.CompletionItem(
+            type,
+            vscode.CompletionItemKind.Keyword,
+          );
 
-        item.detail = detail;
-        completionItems.push(item);
-      });
+          item.detail = vscode.l10n.t(detail);
+          completionItems.push(item);
+        });
 
-      return completionItems;
+        return completionItems;
+      },
     },
-  });
+  );
   context.subscriptions.push(completionProvider);
 };
 
