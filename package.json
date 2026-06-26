@@ -1,20 +1,31 @@
 {
   "name": "ixion",
   "displayName": "Ixion language support",
-  "description": "",
-  "publisher": "TraumDE",
-  "type": "module",
-  "icon": "assets/icon.png",
-  "license": "MIT",
   "version": "0.2.1",
-  "repository": "https://github.com/TraumDE/ixion-language-support-vscode/tree/main",
-  "main": "./dist/extension.js",
-  "engines": {
-    "vscode": "^1.125.0"
-  },
+  "description": "",
   "categories": [
     "Programming Languages"
   ],
+  "license": "MIT",
+  "repository": "https://github.com/TraumDE/ixion-language-support-vscode/tree/main",
+  "publisher": "TraumDE",
+  "type": "module",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "compile": "tsc",
+    "build": "vsce package",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.125.0",
+    "@vscode/vsce": "^3.9.2",
+    "oxfmt": "^0.56.0",
+    "oxlint": "^1.71.0",
+    "typescript": "^6.0.3"
+  },
   "contributes": {
     "languages": [
       {
@@ -41,20 +52,9 @@
       }
     ]
   },
-  "scripts": {
-    "compile": "tsc",
-    "build": "vsce package",
-    "lint": "oxlint",
-    "lint:fix": "oxlint --fix",
-    "fmt": "oxfmt",
-    "fmt:check": "oxfmt --check"
-  },
-  "devDependencies": {
-    "@types/vscode": "^1.125.0",
-    "@vscode/vsce": "^3.9.2",
-    "oxfmt": "^0.56.0",
-    "oxlint": "^1.71.0",
-    "typescript": "^6.0.3"
+  "icon": "assets/icon.png",
+  "engines": {
+    "vscode": "^1.125.0"
   },
   "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b"
 }

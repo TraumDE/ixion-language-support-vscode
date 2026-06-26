@@ -6,9 +6,10 @@ This document serves as the developer/AI context guide for the `ixion-language-s
 
 ## 1. Project Overview
 
-This project is a **Visual Studio Code Extension** providing rich language support for the [**Ixion**](https://github.com/ixionlang/ixion) programming language (`.ix` files). 
+This project is a **Visual Studio Code Extension** providing rich language support for the [**Ixion**](https://github.com/ixionlang/ixion) programming language (`.ix` files).
 
 ### Key Technologies
+
 - **TypeScript**: The main extension code is written in TS and compiled to ESM (`nodenext`).
 - **VS Code Extension API**: Extends VS Code features (registering completion providers, etc.).
 - **TextMate Grammars**: Language syntax highlighting is defined using a JSON TextMate grammar (`syntaxes/ixion.tmLanguage.json`).
@@ -16,6 +17,7 @@ This project is a **Visual Studio Code Extension** providing rich language suppo
 - **vsce**: Used to package the extension into a `.vsix` file.
 
 ### Architecture
+
 - **Language Configurations**: File association, bracket matching, and auto-closing configurations are located in `language-configuration.json`.
 - **Syntax Highlighting**: Defined via declarative rules in `syntaxes/ixion.tmLanguage.json`.
 - **Programmatic Features**: Autocompletion (currently registering basic keywords and built-in types) is handled programmatically in `src/extension.ts`.
@@ -58,12 +60,14 @@ The project relies on `pnpm` for dependency management and `typescript` for comp
 ### Key Commands
 
 - **Install Dependencies**:
+
   ```bash
   pnpm install
   ```
 
 - **Compile TypeScript**:
   The TypeScript compiler compiles TS files in `./src` and outputs them to `./dist/extension.js`.
+
   ```bash
   pnpm exec tsc
   # Or watch for changes:
@@ -91,15 +95,18 @@ The project relies on `pnpm` for dependency management and `typescript` for comp
 When modifying or expanding the extension, adhere to these guidelines and patterns:
 
 ### TypeScript & Code Style
+
 - **Strict Typing**: The project enforces strict TypeScript compilation rules (defined in `tsconfig.json`). Ensure all new code maintains 100% type-safety without casting where possible.
 - **Module System**: The extension compiles to target `esnext` and module `nodenext`. Standard ESM imports must be used (including file extensions in imports if referencing local files).
 - **Extension Lifetime**: Use the `context.subscriptions.push(...)` pattern in `activate()` to ensure all providers and event handlers are cleanly disposed of when the extension is deactivated.
 
 ### Syntax Highlighting (Grammar)
+
 - All keywords and types added to `syntaxes/ixion.tmLanguage.json` should also be added to:
   1. The lists in `src/extension.ts` (for auto-complete).
   2. The `README.md` features list.
 - Use precise scope names (e.g., `keyword.control.ixion`, `support.type.ixion`, `string.quoted.double.ixion`) for appropriate colorization across various VS Code themes.
 
 ### Bracket & Comments Configuration
+
 - If the language comment characters or auto-closing behaviors change, update `language-configuration.json` accordingly.
