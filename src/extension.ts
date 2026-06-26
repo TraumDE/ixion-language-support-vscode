@@ -31,38 +31,29 @@ export const activate = (context: vscode.ExtensionContext) => {
     void: "void / no return type",
   };
 
-  const completionProvider = vscode.languages.registerCompletionItemProvider(
-    "ixion",
-    {
-      provideCompletionItems(): vscode.ProviderResult<
-        vscode.CompletionItem[] | vscode.CompletionList<vscode.CompletionItem>
-      > {
-        const completionItems: vscode.CompletionItem[] = [];
+  const completionProvider = vscode.languages.registerCompletionItemProvider("ixion", {
+    provideCompletionItems(): vscode.ProviderResult<
+      vscode.CompletionItem[] | vscode.CompletionList<vscode.CompletionItem>
+    > {
+      const completionItems: vscode.CompletionItem[] = [];
 
-        Object.entries(keywords).forEach(([keyword, detail]) => {
-          const item = new vscode.CompletionItem(
-            keyword,
-            vscode.CompletionItemKind.Keyword,
-          );
+      Object.entries(keywords).forEach(([keyword, detail]) => {
+        const item = new vscode.CompletionItem(keyword, vscode.CompletionItemKind.Keyword);
 
-          item.detail = vscode.l10n.t(detail);
-          completionItems.push(item);
-        });
+        item.detail = vscode.l10n.t(detail);
+        completionItems.push(item);
+      });
 
-        Object.entries(types).forEach(([type, detail]) => {
-          const item = new vscode.CompletionItem(
-            type,
-            vscode.CompletionItemKind.TypeParameter,
-          );
+      Object.entries(types).forEach(([type, detail]) => {
+        const item = new vscode.CompletionItem(type, vscode.CompletionItemKind.TypeParameter);
 
-          item.detail = vscode.l10n.t(detail);
-          completionItems.push(item);
-        });
+        item.detail = vscode.l10n.t(detail);
+        completionItems.push(item);
+      });
 
-        return completionItems;
-      },
+      return completionItems;
     },
-  );
+  });
   context.subscriptions.push(completionProvider);
 };
 
