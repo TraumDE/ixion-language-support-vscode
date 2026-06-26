@@ -1,26 +1,35 @@
 import * as vscode from "vscode";
 
 export const activate = (context: vscode.ExtensionContext) => {
-  const keywords = [
-    "pub",
-    "def",
-    "type",
-    "var",
-    "const",
-    "use",
-    "if",
-    "else",
-    "for",
-    "while",
-    "return",
-    "case",
-    "lambda",
-    "struct",
-    "enum",
-    "true",
-    "false",
-  ];
-  const types = ["int", "float", "double", "string", "bool", "any", "void"];
+  const keywords: Record<string, string> = {
+    pub: "public visibility modifier",
+    def: "function definition",
+    type: "type declaration",
+    var: "mutable variable",
+    const: "constant variable",
+    use: "module import",
+    if: "if conditional statement",
+    else: "else conditional branch",
+    for: "for loop statement",
+    while: "while loop statement",
+    return: "return statement",
+    case: "switch/match case branch",
+    lambda: "anonymous function expression",
+    struct: "struct declaration",
+    enum: "enum declaration",
+    true: "boolean true literal",
+    false: "boolean false literal",
+  };
+
+  const types: Record<string, string> = {
+    int: "integer type",
+    float: "floating-point type",
+    double: "double-precision float type",
+    string: "string text type",
+    bool: "boolean type",
+    any: "dynamic any type",
+    void: "void / no return type",
+  };
 
   const completionProvider = vscode.languages.registerCompletionItemProvider(
     "ixion",
@@ -33,22 +42,25 @@ export const activate = (context: vscode.ExtensionContext) => {
       > {
         const completionItems: vscode.CompletionItem[] = [];
 
-        keywords.forEach((keyword) =>
-          completionItems.push(
-            new vscode.CompletionItem(
-              keyword,
-              vscode.CompletionItemKind.Keyword,
-            ),
-          ),
-        );
-        types.forEach((type) =>
-          completionItems.push(
-            new vscode.CompletionItem(
-              type,
-              vscode.CompletionItemKind.TypeParameter,
-            ),
-          ),
-        );
+        Object.entries(keywords).forEach(([keyword, detail]) => {
+          const item = new vscode.CompletionItem(
+            keyword,
+            vscode.CompletionItemKind.Keyword,
+          );
+
+          item.detail = detail;
+          completionItems.push(item);
+        });
+
+        Object.entries(types).forEach(([type, detail]) => {
+          const item = new vscode.CompletionItem(
+            type,
+            vscode.CompletionItemKind.Keyword,
+          );
+
+          item.detail = detail;
+          completionItems.push(item);
+        });
 
         return completionItems;
       },
