@@ -6,7 +6,7 @@ All notable changes to the "ixion" extension will be documented in this file.
 
 ## [0.2.1] - 2026-06-27
 
--- Added details for keywords and types in autocompletion
+- Added details for keywords and types in autocompletion
 
 ## [0.2.0] - 2026-06-25
 
