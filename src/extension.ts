@@ -32,7 +32,10 @@ export const activate = (context: vscode.ExtensionContext) => {
   };
 
   const completionProvider = vscode.languages.registerCompletionItemProvider("ixion", {
-    provideCompletionItems(): vscode.ProviderResult<
+    provideCompletionItems(
+      document,
+      position,
+    ): vscode.ProviderResult<
       vscode.CompletionItem[] | vscode.CompletionList<vscode.CompletionItem>
     > {
       const completionItems: vscode.CompletionItem[] = [];
@@ -50,6 +53,26 @@ export const activate = (context: vscode.ExtensionContext) => {
         item.detail = vscode.l10n.t(detail);
         completionItems.push(item);
       });
+
+      const text = document.getText();
+      const wordRegex = /[a-zA-Z_]\w*/g;
+      const seenWords = new Set<string>();
+      let match: RegExpExecArray | null;
+
+      const currentWordRange = document.getWordRangeAtPosition(position);
+      const currentWord = currentWordRange ? document.getText(currentWordRange) : "";
+
+      while ((match = wordRegex.exec(text)) !== null) {
+        const word = match[0];
+
+        if (keywords[word] || types[word] || word === currentWord) continue;
+
+        seenWords.add(word);
+      }
+
+      seenWords.forEach((word) =>
+        completionItems.push(new vscode.CompletionItem(word, vscode.CompletionItemKind.Text)),
+      );
 
       return completionItems;
     },
